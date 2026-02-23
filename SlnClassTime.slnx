@@ -1,1 +1,4 @@
-<Solution />
+<Solution>
+  <Project Path="ClassTime.Backend/ClassTime.Backend.csproj" />
+  <Project Path="ClassTime.ConsoleApp/ClassTime.FrontEnd.csproj" />
+</Solution>
