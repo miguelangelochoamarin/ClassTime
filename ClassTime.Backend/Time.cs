@@ -10,7 +10,7 @@
 
         private DateTime _date;
 
-        //Constructor
+        //Constructor + sobrecargas
         public Time()
         {
             _hour = 0;
@@ -128,9 +128,9 @@
         public override string ToString()
         {
             DateTime dateTime = new DateTime(1, 1, 1, Hour, Minute, Second, Milisecond);
-            return dateTime.ToString("hh:mm:ss.fff tt");
+            return dateTime.ToString("hh:mm:ss.fff tt").ToUpper();
         }
-
+        //metodo para validar quela hora ingreasdo es un valor correcto
         private int ValidHour(int hour)
         {
             if (hour < 0 || hour > 23)
@@ -139,7 +139,7 @@
             }
             return hour;
         }
-
+        //metodo para validar que el milisegundo ingreasdo es un valor correcto
         private int ValidMilisecond(int milisecond)
         {
             if (milisecond < 0 || milisecond > 999)
@@ -148,7 +148,7 @@
             }
             return milisecond;
         }
-
+        //metodo para validar que el minuto ingreasdo es un valor correcto
         private int ValidMinute(int minute) {
             if (minute < 0 || minute > 59)
             {
@@ -156,7 +156,7 @@
             }
             return minute;
         }
-
+        //metodo para validar que el segundo ingreasdo es un valor correcto
         private int ValidSecond(int second) {  
             if (second < 0 || second > 59)
             {
