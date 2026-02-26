@@ -6,7 +6,7 @@
         private int _hour;
         private int _minute;
         private int _second;
-        private int _milisecond;
+        private int _millisecond;
 
         private DateTime _date;
 
@@ -16,7 +16,7 @@
             _hour = 0;
             _minute = 0;
             _second = 0;
-            _milisecond = 0;
+            _millisecond = 0;
         }
 
         public Time(int hour)
@@ -37,12 +37,12 @@
             Second = second;
         }
 
-        public Time(int hour, int minute, int second, int milisecond)
+        public Time(int hour, int minute, int second, int millisecond)
         {
             Hour = hour;
             Minute = minute;
             Second = second;
-            Milisecond = milisecond;
+            Millisecond = millisecond;
         }
 
         //Properties
@@ -62,9 +62,9 @@
             set => _second = ValidSecond(value);
         }
 
-        public int Milisecond { 
-            get => _milisecond;
-            set => _milisecond = ValidMilisecond(value);
+        public int Millisecond { 
+            get => _millisecond;
+            set => _millisecond = ValidMillisecond(value);
         }
 
 
@@ -104,7 +104,7 @@
         {
             try
             {
-                long total = ((long)Hour * 60 * 60 + (long)Minute * 60 + Second) * 1000 + Milisecond;
+                long total = ((long)Hour * 60 * 60 + (long)Minute * 60 + Second) * 1000 + Millisecond;
                 return total;
             }
             catch
@@ -127,24 +127,24 @@
 
         public override string ToString()
         {
-            DateTime dateTime = new DateTime(1, 1, 1, Hour, Minute, Second, Milisecond);
-            return dateTime.ToString("hh:mm:ss.fff tt").ToUpper();
+            DateTime dateTime = new DateTime(1, 1, 1, Hour, Minute, Second, Millisecond);
+            return dateTime.ToString("HH:mm:ss.fff tt").ToUpper();
         }
         //metodo para validar quela hora ingreasdo es un valor correcto
         private int ValidHour(int hour)
         {
             if (hour < 0 || hour > 23)
             {
-                throw new ArgumentOutOfRangeException(nameof(hour), "Hour must be between 0 and 23.");
+                throw new ArgumentOutOfRangeException(nameof(hour), $"The Hour: {hour}, is not valid.");
             }
             return hour;
         }
         //metodo para validar que el milisegundo ingreasdo es un valor correcto
-        private int ValidMilisecond(int milisecond)
+        private int ValidMillisecond(int milisecond)
         {
             if (milisecond < 0 || milisecond > 999)
             {
-                throw new ArgumentOutOfRangeException(nameof(milisecond), "Milisecond must be between 0 and 999.");
+                throw new ArgumentOutOfRangeException(nameof(milisecond), $" the Millisecond: {milisecond} is not valid.");
             }
             return milisecond;
         }

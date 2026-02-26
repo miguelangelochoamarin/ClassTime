@@ -14,7 +14,7 @@ try
     foreach (var time in times)
     {
         Console.WriteLine($"Time: {time}");
-        Console.WriteLine($"\tMiliseconds : {time.ToMilliseconds(), 20:N0}");
+        Console.WriteLine($"\tMilliseconds: {time.ToMilliseconds(), 20:N0}");
         Console.WriteLine($"\tSeconds     : {time.ToSeconds(), 20:N0}");
         Console.WriteLine($"\tMinutes     : {time.ToMinutes(), 20:N0}");
         Console.WriteLine($"\tAdd         : {time.Add(t3), 20:N0}");
