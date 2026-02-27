@@ -7,8 +7,7 @@
         private int _minute;
         private int _second;
         private int _millisecond;
-
-        private DateTime _date;
+        
 
         //Constructor + sobrecargas
         public Time()
@@ -52,12 +51,14 @@
             set => _hour = ValidHour(value);
         }
 
-        public int Minute { 
+        public int Minute 
+        { 
             get => _minute;
             set => _minute = ValidMinute(value);
         }
 
-        public int Second { 
+        public int Second 
+        { 
             get => _second;
             set => _second = ValidSecond(value);
         }
@@ -74,7 +75,6 @@
             long totalMs = ToMilliseconds() + newTime.ToMilliseconds();
             const long msPerDay = 24L * 60 * 60 * 1000;
             totalMs %= msPerDay;
-
             int hours = (int)(totalMs / (60 * 60 * 1000));
             totalMs -= hours * 60 * 60 * 1000;
             int minutes = (int)(totalMs / (60 * 1000));
@@ -152,7 +152,7 @@
         private int ValidMinute(int minute) {
             if (minute < 0 || minute > 59)
             {
-                throw new ArgumentOutOfRangeException(nameof(minute), "Minute must be between 0 and 59.");
+                throw new ArgumentOutOfRangeException(nameof(minute), $"the Minute: {minute} is not valid.");
             }
             return minute;
         }
